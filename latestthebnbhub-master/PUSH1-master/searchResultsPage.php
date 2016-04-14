@@ -229,15 +229,15 @@ session_start();
         try{
             $st = $conn-> query("SELECT * FROM [B&B] WHERE [city] = '$city'
                                  AND [bbid] NOT IN (
-            SELECT [Bookings].bbid
+            SELECT [bbid]
 FROM [Bookings]
-WHERE [Bookings].bookingenddate NOT BETWEEN '$datein' AND '$dateout'
-            AND [Bookings].bookingstartdate NOT BETWEEN '$datein' AND '$dateout'
-            AND [Bookings].bbid NOT IN (
+WHERE [bookingenddate] NOT BETWEEN '$datein' AND '$dateout'
+            AND [bookingstartdate] NOT BETWEEN '$datein' AND '$dateout'
+            AND [bbid] NOT IN (
 
-                SELECT [Bookings].bbid
+                SELECT [bbid]
 FROM [Bookings]
-WHERE ([Bookings].bookingstartdate < '$datein' AND [Bookings].bookingenddate > '$dateout' )
+WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )
 
 )
         )");
