@@ -231,13 +231,13 @@ session_start();
                                  AND [bbid] IN (
             SELECT [Bookings].bbid
 FROM [Bookings]
-WHERE [Bookings].bookingenddate NOT BETWEEN '2016/07/20' AND '2016/07/25'
-            AND [Bookings].bookingstartdate NOT BETWEEN '2016/07/20' AND '2016/07/25'
+WHERE [Bookings].bookingenddate NOT BETWEEN '$datein' AND '$dateout'
+            AND [Bookings].bookingstartdate NOT BETWEEN '$datein' AND '$dateout'
             AND [Bookings].bbid NOT IN (
 
                 SELECT [Bookings].bbid
 FROM [Bookings]
-WHERE ([Bookings].bookingstartdate < '2016/07/20' AND [Bookings].bookingenddate > '2016/07/25' )
+WHERE ([Bookings].bookingstartdate < '$datein' AND [Bookings].bookingenddate > '$dateout' )
 
 )
         )");
