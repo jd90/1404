@@ -146,7 +146,7 @@ session_start();
     </div>
     <script>
         function logout() {
-            window.location = "SearchBB.php";
+            window.location = "SearchBB.php?value=logout";
         }
     </script>
 </section>
@@ -237,11 +237,11 @@ session_start();
                         <div class="table5">
 
 
-<a href="Customerinfo.php" id="nodec">
+<a href="Customerinfo.php?bbid={$row[bbid]}" id="nodec">
 
 <table border="0" cellpadding="5">
 
-<form action="Customerinfo.php" method="post">
+<form action="Customerinfo.php?bbid={$row[bbid]}" method="post">
                        <tr hidden><td>
                     <label for="bbname">BBname:</label></td>
                 <td> <input type="text" id="bbname" name="bbname" value="{$row[bbname]}" readonly></option>
@@ -328,10 +328,10 @@ NEWHTML;
                     $newhtml =
                         <<<NEWHTML
                             <div class="table5">
-<a href="Customerinfo.php" id="nodec"><table border="0" cellpadding="5">
+<a href="Customerinfo.php?bbid={$row[bbid]}" id="nodec"><table border="0" cellpadding="5">
 
 
-<form action="Customerinfo.php" method="post">
+<form action="Customerinfo.php?bbid={$row[bbid]}" method="post">
                        <tr hidden><td>
                     <label for="bbname">BBname:</label></td>
                 <td> <input type="text" id="bbname" name="bbname" value="{$row[bbname]}" readonly></option>
