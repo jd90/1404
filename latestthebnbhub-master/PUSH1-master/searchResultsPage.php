@@ -220,6 +220,9 @@ session_start();
 
         <?php
         $city = $_POST['location'];
+        $datein = $_POST['datein'];
+        $dateout = $_POST['dateout'];
+        echo "".datein." ".$dateout;
 
         $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
