@@ -231,13 +231,13 @@ session_start();
                                  AND [bbid] NOT IN (
             SELECT [bbid]
 FROM [Bookings]
-WHERE [bookingenddate]  BETWEEN CAST('$datein' AS DATE) AND CAST('$dateout' AS DATE)
-            AND [bookingstartdate]  BETWEEN CAST('$datein' AS DATE) AND CAST('$dateout' AS DATE)
+WHERE [bookingenddate]  BETWEEN #'$datein'# AND #'$dateout'#
+            AND [bookingstartdate]  BETWEEN #'$datein'# AND #'$dateout'#
             AND [bbid] NOT IN (
 
                 SELECT [bbid]
 FROM [Bookings]
-WHERE ([bookingstartdate] < CAST('$datein' AS DATE) AND [bookingenddate] > CAST('$dateout' AS DATE) )
+WHERE ([bookingstartdate] < #'$datein'# AND [bookingenddate] > #'$dateout'# )
 
 )
         )");
