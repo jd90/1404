@@ -231,7 +231,7 @@ session_start();
                                  AND [bbid] NOT IN (
             SELECT [bbid]
 FROM [Bookings]
-WHERE [bookingenddate]  BETWEEN #'$datein'# AND #'$dateout'#
+WHERE [bookingenddate]  BETWEEN #'08/01/2016'# AND #'$dateout'#
             AND [bookingstartdate]  BETWEEN #'$datein'# AND #'$dateout'#
             AND [bbid] NOT IN (
 
