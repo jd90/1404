@@ -232,7 +232,7 @@ session_start();
                                  AND [bbid] IN (
             SELECT [Bookings].bbid
 FROM [Bookings]
-WHERE [Bookings].bookingenddate NOT BETWEEN 'h' AND '$dateout'
+WHERE [Bookings].bookingenddate NOT BETWEEN '$datein' AND '$dateout'
             AND [Bookings].bookingstartdate NOT BETWEEN '$datein' AND '$dateout'
             AND [Bookings].bbid NOT IN (
 
