@@ -214,12 +214,12 @@ $bookingid = $_POST['bookingid'];
 $bbname = $_POST['bbname'];
 $bookingstartdate = $_POST['bookingstardate'];
 $bookingenddate = $_POST['bookingenddate'];
-$cost = $_POST['cost'];
+//$cost = $_POST['cost'];
 $address = $_POST['address'];
 $address2 = $_POST['address2'];
 $city = $_POST['city'];
 $postcode = $_POST['postcode'];
-$roomid = $_POST['roomid'];
+//$roomid = $_POST['roomid'];
 $bbid = $_POST['bbid'];
 
 $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
