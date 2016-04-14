@@ -406,6 +406,11 @@ try{
                 <input type="text" name="cost" value="£{$row[price]}" readonly>£{$row[price]}</option>
                  </td>
             </tr>
+            <tr ><td><label for="roomid">roomid:</label></td>
+                <td>
+                <input type="text" name="roomid" value="£{$row[roomid]}" readonly>£{$row[roomid]}</option>
+                 </td>
+            </tr>
 NEWHTML;
         print($newhtml);
     }
