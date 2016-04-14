@@ -401,12 +401,12 @@ try{
             <option value="{$row[roomname]}">{$row[roomname]}</option>
 NEWHTML;
 
-        print($newhtml);
+        print($newhtmlw);
     }
 
-    $newhtml ="";
+    $newhtmlw ="";
             foreach($st->fetchAll() as $row) {
-          $newhtml = $newhtml.
+          $newhtmlw = $newhtmlw.
 <<<NEWHTML
 </select>
 </td></tr>
@@ -427,7 +427,7 @@ NEWHTML;
                  </td>
             </tr>
 NEWHTML;
-        print($newhtml);
+        print($newhtmlw);
     }
 }
 catch(PDOException $e)
