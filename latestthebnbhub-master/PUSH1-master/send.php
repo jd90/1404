@@ -18,7 +18,32 @@ $address = $_POST['address'];
 $address2 = $_POST['address2'];
 $city = $_POST['city'];
 $postcode = $_POST['postcode'];
+?>
 
+
+<?php
+
+
+$conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+try{
+    $st = $conn-> query("SELECT * FROM [room] WHERE [roomname] = '$roomname'");
+    foreach($st->fetchAll() as $row) {
+
+        $bbid=$row[bbid];
+        $cost =$row[price];
+        $roomid=$row[roomid];
+
+    }
+}
+catch(PDOException $e)
+{print"$e";}
+
+
+
+?>
+
+<?php
 
 require 'PHPMailerAutoload.php';
 $mail = new PHPMailer;
