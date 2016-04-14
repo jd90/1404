@@ -401,10 +401,10 @@ try{
             <option value="{$row[roomname]}">{$row[roomname]}</option>
 NEWHTML;
 
-        $newhtmlw =$newhtmlw."</select> hi";
+
         print($newhtmlw);
     }
-
+   echo "</select> hi";
     $newhtmlx ="";
             foreach($st->fetchAll() as $row) {
           $newhtmlx = $newhtmlx.
