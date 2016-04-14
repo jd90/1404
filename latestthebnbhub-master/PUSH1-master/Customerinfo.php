@@ -404,7 +404,7 @@ NEWHTML;
 
         print($newhtmlw);
     }
-   echo "</select> hi";
+   echo "</select>";
 
 }
 catch(PDOException $e)
@@ -417,7 +417,7 @@ try{
           $newhtmlx = $newhtmlx.
 <<<NEWHTML
 </td></tr>
-            <tr ><td><label for="bbid">bbid:</label></td>
+            <tr hidden><td><label for="bbid">bbid:</label></td>
                 <td>
                 <input type="text" name="bbid" value="{$bbid}" readonly>{$bbid}</option>
                  </td>
@@ -428,7 +428,7 @@ try{
                 <input type="text" name="cost" value="{$row[price]}" readonly>{$row[price]}</option>
                  </td>
             </tr>
-            <tr ><td><label for="roomid">roomid:</label></td>
+            <tr hidden><td><label for="roomid">roomid:</label></td>
                 <td>
                 <input type="text" name="roomid" value="{$row[roomid]}" readonly>{$row[roomid]}</option>
                  </td>
@@ -511,22 +511,22 @@ catch(PDOException $e)
                             $newhtml =
                                 <<<NEWHTML
 
-            <tr ><td><label for="bbemail">B&B Email:</label></td>
+            <tr hidden><td><label for="bbemail">B&B Email:</label></td>
                 <td>
                 <input type="text" name="bbemail" value="{$row[bb_email]}" readonly>{$row[bb_email]}</option>
                  </td>
             </tr>
-            <tr ><td><label for="checkin">checkin:</label></td>
+            <tr hidden><td><label for="checkin">checkin:</label></td>
                 <td>
                 <input type="text" name="checkin" value="{$row[checkin]}" readonly>{$row[checkin]}</option>
                  </td>
             </tr>
-            <tr ><td><label for="checkout">checkout:</label></td>
+            <tr hidden><td><label for="checkout">checkout:</label></td>
                 <td>
                 <input type="text" name="checkout" value="{$row[checkout]}" readonly>{$row[checkout]}</option>
                  </td>
             </tr>
-            <tr ><td><label for="bbname">bbname:</label></td>
+            <tr hidden><td><label for="bbname">bbname:</label></td>
                 <td>
                 <input type="text" name="bbname" value="{$row[bbname]}" readonly>{$row[bbname]}</option>
                  </td>
