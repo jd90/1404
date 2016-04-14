@@ -201,7 +201,7 @@ $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 try {
     $st = $conn->query("INSERT INTO Bookings ([cost], [roomid], [bookingtype], [roomname],[cust_title],[cust_firstname],[cust_surname],[cust_telephone],[cust_email],
                                         [cust_address_line1], [cust_address_line2],[cust_postcode],[cust_city])
-                                        VALUES ('".$cost."','".$roomid."','"."customer"."','".$roomname."','".$title."','".$firstname."','".$surname."','".$telephone."','".$email."',
+                                        VALUES ('".$cost."','".$roomid."','"."1"."','".$roomname."','".$title."','".$firstname."','".$surname."','".$telephone."','".$email."',
                                         '".$address."','".$address2."','".$postcode."','".$city."')");
     {
         $newhtml =
