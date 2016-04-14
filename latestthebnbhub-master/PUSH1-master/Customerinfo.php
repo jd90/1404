@@ -394,16 +394,19 @@ $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Databa
 $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 try{
     $st = $conn-> query("SELECT * FROM [room] WHERE [bbid] = '$bbid'");
-    $newhtml2="";
     foreach($st->fetchAll() as $row) {
-        $newhtml2 = $newhtml2.
+        $newhtmlw =
 <<<NEWHTML
 
             <option value="{$row[roomname]}">{$row[roomname]}</option>
 NEWHTML;
+
+        print($newhtml);
     }
+
+    $newhtml ="";
             foreach($st->fetchAll() as $row) {
-        $newhtml2 = $newhtml2.
+          $newhtml = $newhtml.
 <<<NEWHTML
 </select>
 </td></tr>
@@ -424,7 +427,7 @@ NEWHTML;
                  </td>
             </tr>
 NEWHTML;
-        print($newhtml2);
+        print($newhtml);
     }
 }
 catch(PDOException $e)
