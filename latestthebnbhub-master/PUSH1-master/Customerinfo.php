@@ -401,7 +401,7 @@ try{
             <option value="{$row[roomname]}">{$row[roomname]}</option>
 NEWHTML;
 
-        $newhtmlw =$newhtmlw."</select>";
+        $newhtmlw =$newhtmlw."</select> hi";
         print($newhtmlw);
     }
 
