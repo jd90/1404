@@ -125,7 +125,7 @@ if (!$mail->send()) {
 <td>Check-out: $checkout</td>
 </tr>
 <tr>
-<td>Cost (incl. VAT): $cost</td>
+<td>Cost (incl. VAT): £$cost</td>
 </tr>
 <tr>
 <td>Customer Name: $title $firstname $surname</td>

@@ -403,7 +403,7 @@ try{
             </td></tr>
             <tr ><td><label for="cost">cost:</label></td>
                 <td>
-                <input type="text" name="cost" value="£{$row[price]}" readonly>£{$row[price]}</option>
+                <input type="text" name="cost" value="{$row[price]}" readonly>{$row[price]}</option>
                  </td>
             </tr>
             <tr ><td><label for="roomid">roomid:</label></td>
