@@ -19,6 +19,7 @@ $address2 = $_POST['address2'];
 $city = $_POST['city'];
 $postcode = $_POST['postcode'];
 
+
 require 'PHPMailerAutoload.php';
 $mail = new PHPMailer;
 $mail->isSMTP();
