@@ -49,7 +49,7 @@ session_start();
             <script>
                 function logout() {
 
-                    window.location = "SearchBB.php";
+                    window.location = "SearchBB.php?value=logout";
                 }
             </script>
     </div>
@@ -91,11 +91,11 @@ session_start();
 
 
 <?php
-$bbname = $_POST['bbname'];
+$bbid = $_GET['bbid'];
 $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
 $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 try{
-    $st = $conn-> query("SELECT * FROM [B&B] WHERE [bbname] = '$bbname'");
+    $st = $conn-> query("SELECT * FROM [B&B] WHERE [bbid] = '$bbid'");
     foreach($st->fetchAll() as $row) {
         $newhtml =
             <<<NEWHTML
@@ -128,7 +128,7 @@ try{
 </tr>
 <tr>
 <td width="25%"><strong>Telephone: </strong></td><td>{$row[telephone]}</td>
-<td width="20%"><strong>Email Address: </strong></td><td>{$row[bb_email]}</td>
+<td width="20%"><strong>Email Address: </strong></td><td>{$row[email]}</td>
 
 </tr>
 
@@ -164,51 +164,82 @@ catch(PDOException $e)
 
 
 
+
 <?php
-$bbid = $_POST['bbid'];
+$bbid = $_GET['bbid'];
 $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
 $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 try{
     $st = $conn-> query("SELECT * FROM [room] WHERE [bbid] = '$bbid'");
-    foreach($st->fetchAll() as $row) {
+    foreach($st->fetchAll() as $row1) {
+
         $newhtml =
             <<<NEWHTML
-
-                        <div class="table6">
+                                            <div class="table6">
 <table border="0" cellpadding="5">
 <tr>
 <td width="500">
-
-
-
-
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+NEWHTML;
 
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
+        $count = 0;
+        $st = $conn-> query("SELECT * FROM [images] WHERE [roomid] = '{$row1[roomid]}'");
+        foreach($st->fetchAll() as $row) {
+            $newhtml = $newhtml .
+                <<<NEWHTML
+                <li data-target="#myCarousel" data-slide-to="{$count}"
+NEWHTML;
+            if($count == 0){
+                $newhtml = $newhtml .
+                    <<<NEWHTML
+                     class="active"></li>
+NEWHTML;
+            }else{
+                $newhtml = $newhtml .
+                    <<<NEWHTML
+                    ></li>
+NEWHTML;
+            }
+            $count++;
+        }
 
+        $newhtml = $newhtml.
+            <<<NEWHTML
+                        </ol>
             <div class="carousel-inner" role="listbox">
+
+NEWHTML;
+        $count=0;
+        $st = $conn-> query("SELECT * FROM [images] WHERE [roomid] = '{$row[roomid]}'");
+        foreach($st->fetchAll() as $row) {
+
+            if($count==0){
+                $newhtml = $newhtml.
+                    <<<NEWHTML
+
+
+
             <div class="item active">
-                <img src="assets/glasgow.jpg" width="460" height="345">
+                <img src="{$row[imageurl]}" width="460" height="345">
             </div>
+
+NEWHTML;
+            }else{
+                $newhtml = $newhtml.
+                    <<<NEWHTML
 
             <div class="item">
-                <img src="assets/london.jpg" width="460" height="345">
+                <img src="{$row[imageurl]}" width="460" height="345">
             </div>
 
-            <div class="item">
-                <img src="assets/manchester.jpg" width="460" height="345">
-            </div>
-
-            <div class="item">
-                <img src="assets/aberdeen.jpg" width="460" height="345">
-            </div>
-        </div>
-
+NEWHTML;
+            }
+            $count++;
+        }
+        $newhtml = $newhtml.
+            <<<NEWHTML
+             </div>
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
             <span class="sr-only"></span>
         </a>
@@ -217,27 +248,29 @@ try{
         </a>
     </div>
 
-
-</td>
+NEWHTML;
+        $newhtml = $newhtml.
+            <<<NEWHTML
+            </td>
 <td>
 <table border="0" cellpadding="5">
 <tr>
-<td width="25%"><strong>Room Name: </strong></td><td>{$row[roomname]}</td>
+<td width="25%"><strong>Room Name: </strong></td><td>{$row1[roomname]}</td>
 </tr>
 <tr>
-<td width="25%" valign="top"><strong>Room Description: </strong></td><td>{$row[roomdescription]}</td>
+<td width="25%" valign="top"><strong>Room Description: </strong></td><td>{$row1[roomdescription]}</td>
 </tr>
 <tr>
-<td width="25%"><strong>People room sleeps: </strong></td><td>{$row[numberofpeople]}</td>
+<td width="25%"><strong>People room sleeps: </strong></td><td>{$row1[numberofpeople]}</td>
 </tr>
 <tr>
-<td width="25%"><strong>Price per Night: </strong></td><td>£{$row[price]}</td>
+<td width="25%"><strong>Price per Night: </strong></td><td>£{$row1[price]}</td>
 </tr>
 <tr>
-<td width="25%"><strong>Room Type: </strong></td><td>{$row[roomtype]}</td>
+<td width="25%"><strong>Room Type: </strong></td><td>{$row1[roomtype]}</td>
 </tr>
 <tr>
-<td width="25%"><strong>En-Suite: </strong></td><td>{$row[ensuite]}</td>
+<td width="25%"><strong>En-Suite: </strong></td><td>{$row1[ensuite]}</td>
 </tr>
 <tr>
 
@@ -258,6 +291,7 @@ NEWHTML;
 catch(PDOException $e)
 {print"$e";}
 ?>
+
 
 
 
@@ -438,52 +472,31 @@ catch(PDOException $e)
             <tr hidden><td>
                     <label for="bbemail">B&B Email:</label></td>
                 <td>
-                        <?php
-                        $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
-                        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-                        try{
-                            $st = $conn-> query("SELECT * FROM [B&B] WHERE [bbid] = '$bbid'");
-                            foreach($st->fetchAll() as $row) {
-                                $newhtml =
-                                    <<<NEWHTML
+                    <?php
+                    $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+                    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+                    try{
+                        $st = $conn-> query("SELECT * FROM [B&B] WHERE [bbid] = '100000'");
+                        foreach($st->fetchAll() as $row) {
+                            $newhtml =
+                                <<<NEWHTML
 
-                             <input type="text" name="bb_email" value="{$row[bb_email]}" readonly>{$row[bb_email]}</option>
-
-                               </td></tr><tr hidden>
-                <td>
-                    <label for="checkin">Check-in Time:</label></td>
-                <td><input type="text" id="checkin" class="inputform" name="checkin" value="{$row['checkin']}"</td>
-            </tr>
-            <tr hidden>
-            <td>
-                    <label for="checkout">Check-out Time:</label></td>
-                <td><input type="text" id="checkout" class="inputform" name="checkout" value="{$row['checkout']}"</td>
-            </tr>
-            <tr hidden>
-            <td>
-                    <label for="bbname">B&B Name:</label></td>
-                <td><input type="text" id="bbname" class="inputform" name="bbname" value="{$row['bbname']}"></td>
-            </tr>
-
-
+                             <input type="text" name="bbemail" value="{$row[bb_email]}" readonly>{$row[bb_email]}</option>
 NEWHTML;
-                                print($newhtml);
-                            }
+                            print($newhtml);
                         }
-                        catch(PDOException $e)
-                        {print"$e";}
-                        ?>
+                    }
+                    catch(PDOException $e)
+                    {print"$e";}
+                    ?>
 
                 </td></tr>
             <tr>
-
-
-
-
                 <td colspan="4"><p align="right" ><input class="btn2" type="submit" value="Submit" class="submit" /></p></td>
             </tr>
         </table></form>
 </section>
+
 
 <section class="spacer" id="spacer">
 
