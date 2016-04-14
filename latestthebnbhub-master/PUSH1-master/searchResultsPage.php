@@ -231,13 +231,13 @@ session_start();
                                  AND [bbid] NOT IN (
             SELECT [bbid]
 FROM [Bookings]
-WHERE [bookingenddate]  BETWEEN TRY_PARSE('$datein' AS datetime USING 'en-US') AND TRY_PARSE('$dateout' AS datetime USING 'en-US')
-            AND [bookingstartdate]  BETWEEN TRY_PARSE('$datein' AS datetime USING 'en-US') AND TRY_PARSE('$dateout' AS datetime USING 'en-US')
+WHERE [bookingenddate]  BETWEEN '$datein' AND '$dateout'
+            AND [bookingstartdate]  BETWEEN '$datein' AND '$dateout'
             AND [bbid] NOT IN (
 
                 SELECT [bbid]
 FROM [Bookings]
-WHERE ([bookingstartdate] < TRY_PARSE('$datein' AS datetime USING 'en-US') AND [bookingenddate] > TRY_PARSE('$dateout' AS datetime USING 'en-US') )
+WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )
 
 )
         )");
