@@ -489,14 +489,19 @@ catch(PDOException $e)
                 <input type="text" name="bbemail" value="{$row[bb_email]}" readonly>{$row[bb_email]}</option>
                  </td>
             </tr>
-            <tr ><td><label for="checkin">B&B Email:</label></td>
+            <tr ><td><label for="checkin">checkin:</label></td>
                 <td>
                 <input type="text" name="checkin" value="{$row[checkin]}" readonly>{$row[checkin]}</option>
                  </td>
             </tr>
-            <tr ><td><label for="checkout">B&B Email:</label></td>
+            <tr ><td><label for="checkout">checkout:</label></td>
                 <td>
                 <input type="text" name="checkout" value="{$row[checkout]}" readonly>{$row[checkout]}</option>
+                 </td>
+            </tr>
+            <tr ><td><label for="bbname">bbname:</label></td>
+                <td>
+                <input type="text" name="bbname" value="{$row[bbname]}" readonly>{$row[bbname]}</option>
                  </td>
             </tr>
 NEWHTML;
