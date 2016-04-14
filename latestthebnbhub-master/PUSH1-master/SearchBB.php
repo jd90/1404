@@ -88,6 +88,16 @@ session_start();
 
         //]]>
     </script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $( "#datein" ).datepicker();
+        });
+        $(function() {
+            $( "#dateout" ).datepicker();
+        });
+    </script>
 </head>
 
 <body>
@@ -171,59 +181,25 @@ NEWHTML;
 
 
             <tr>
-                <td colspan="2"><label for="dateday">Check In Date:</label></td>
-                <td colspan="2"><label for="datemonth">Check Out Date:</label></td>
+                <td colspan="2"><label for="datein">Check In Date:</label></td>
+                <td colspan="2"><label for="dateout">Check Out Date:</label></td>
                 </tr>
+
             <tr>
-                <td><select id="date" class="inputform" name="date">
-                        <option value="day">Select Day:</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
+                <td>
+                    <p>Date: <input type="text" id="datein"></p>
                 </td>
-
-                <td><select id="month" class="inputform" name="month">
-                        <option value="month">Select Month:</option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                    </select>
+                <td>
+                    <p>Date: <input type="text" id="dateout"></p>
                 </td>
-
-
-
-                <td><select id="date" class="inputform" name="date">
-                        <option value="day">Select Day:</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-
-                <td><select id="month" class="inputform" name="month">
-                        <option value="month">Select Month:</option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                    </select>
-                </td>
-
-
-
             </tr>
 
+            <tr>
+                <td colspan="4">
 
-           <tr>
-               <td colspan="4">
-
-              <a href="searchResultsPage.php"><input class="btn3" type="submit" value="SEARCH"  /></a></td>
-          </tr>
-      </table>
+                    <a href="searchResultsPage.php"><input class="btn3" type="submit" value="SEARCH"  /></a></td>
+            </tr>
+        </table>
     </form>
 
 </section>
