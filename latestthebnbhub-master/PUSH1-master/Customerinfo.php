@@ -405,8 +405,15 @@ NEWHTML;
         print($newhtmlw);
     }
    echo "</select> hi";
+
+}
+catch(PDOException $e)
+{print"$e";}
+
+try{
     $newhtmlx ="";
-            foreach($st->fetchAll() as $row) {
+    $st = $conn-> query("SELECT * FROM [room] WHERE [bbid] = '$bbid'");
+    foreach($st->fetchAll() as $row) {
           $newhtmlx = $newhtmlx.
 <<<NEWHTML
 </td></tr>
