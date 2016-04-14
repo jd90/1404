@@ -181,9 +181,9 @@ NEWHTML;
 
 
             <tr>
-                <td colspan="2"><label for="datein">Check In Date:</label></td>
-                <td colspan="2"><label for="dateout">Check Out Date:</label></td>
-                </tr>
+                <td colspan="1"><label for="datein">Check In Date:</label></td>
+                <td colspan="1"><label for="dateout">Check Out Date:</label></td>
+            </tr>
 
             <tr>
                 <td>
