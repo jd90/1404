@@ -404,9 +404,9 @@ NEWHTML;
         print($newhtmlw);
     }
 
-    $newhtmlw ="";
+    $newhtmlx ="";
             foreach($st->fetchAll() as $row) {
-          $newhtmlw = $newhtmlw.
+          $newhtmlx = $newhtmlx.
 <<<NEWHTML
 </select>
 </td></tr>
@@ -427,7 +427,7 @@ NEWHTML;
                  </td>
             </tr>
 NEWHTML;
-        print($newhtmlw);
+        print($newhtmlx);
     }
 }
 catch(PDOException $e)
