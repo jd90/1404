@@ -194,14 +194,14 @@ $address2 = $_POST['address2'];
 $city = $_POST['city'];
 $postcode = $_POST['postcode'];
 $roomid = $_POST['roomid'];
-
+$bbid = $_POST['bbid'];
 
 $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
 $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 try {
-    $st = $conn->query("INSERT INTO Bookings ([bookingid],[cost], [roomid], [bookingtype], [roomname],[cust_title],[cust_firstname],[cust_surname],[cust_telephone],[cust_email],
+    $st = $conn->query("INSERT INTO Bookings ([bbid],[cost], [roomid], [bookingtype], [roomname],[cust_title],[cust_firstname],[cust_surname],[cust_telephone],[cust_email],
                                         [cust_address_line1], [cust_address_line2],[cust_postcode],[cust_city])
-                                        VALUES ('".$bookingid."','".$cost."','".$roomid."','"."1"."','".$roomname."','".$title."','".$firstname."','".$surname."','".$telephone."','".$email."',
+                                        VALUES ('".$bbid."','".$cost."','".$roomid."','"."1"."','".$roomname."','".$title."','".$firstname."','".$surname."','".$telephone."','".$email."',
                                         '".$address."','".$address2."','".$postcode."','".$city."')");
     {
         $newhtml =

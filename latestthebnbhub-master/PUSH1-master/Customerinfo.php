@@ -400,6 +400,12 @@ try{
 
             <option value="{$row[roomname]}">{$row[roomname]}</option>
 </select>
+</td></tr>
+            <tr ><td><label for="bbid">bbid:</label></td>
+                <td>
+                <input type="text" name="bbid" value="{$bbid}" readonly>{$bbid}</option>
+                 </td>
+            </tr>
             </td></tr>
             <tr ><td><label for="cost">cost:</label></td>
                 <td>
