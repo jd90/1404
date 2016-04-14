@@ -227,7 +227,22 @@ session_start();
         $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         try{
-            $st = $conn-> query("SELECT * FROM [B&B] WHERE [city] = '$city'");
+            $st = $conn-> query("SELECT * FROM [B&B] WHERE [city] = '$city'
+                                 AND [bbid] IN (
+            SELECT [Bookings].bbid
+FROM [Bookings]
+WHERE [Bookings].bookingenddate NOT BETWEEN '2016/07/20' AND '2016/07/25'
+            AND [Bookings].bookingstartdate NOT BETWEEN '2016/07/20' AND '2016/07/25'
+            AND [Bookings].bbid NOT IN (
+
+                SELECT [Bookings].bbid
+FROM [Bookings]
+WHERE ([Bookings].bookingstartdate < '2016/07/20' AND [Bookings].bookingenddate > '2016/07/25' )
+
+)
+        )");
+
+
 
 
             $count=0;
