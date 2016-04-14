@@ -228,7 +228,7 @@ session_start();
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         try{
             $st = $conn-> query("SELECT * FROM [B&B] WHERE [city] = '$city'
-                                 AND [bbid] NOT IN (
+                                 AND [bbid] IN (
             SELECT [bbid]
 FROM [Bookings]
 WHERE [bookingenddate] NOT BETWEEN CAST('$datein' AS DATE) AND CAST('$dateout' AS DATE)
