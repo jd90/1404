@@ -187,10 +187,10 @@ NEWHTML;
 
             <tr>
                 <td>
-                    <p>Date: <input type="text" id="datein"></p>
+                    <p>Date: <input type="text" name="datein" id="datein"></p>
                 </td>
                 <td>
-                    <p>Date: <input type="text" id="dateout"></p>
+                    <p>Date: <input type="text" name="dateout" id="dateout"></p>
                 </td>
             </tr>
 
