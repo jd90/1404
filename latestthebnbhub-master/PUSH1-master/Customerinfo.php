@@ -401,6 +401,7 @@ try{
             <option value="{$row[roomname]}">{$row[roomname]}</option>
 NEWHTML;
 
+        $newhtmlw =$newhtmlw."</select>";
         print($newhtmlw);
     }
 
@@ -408,7 +409,6 @@ NEWHTML;
             foreach($st->fetchAll() as $row) {
           $newhtmlx = $newhtmlx.
 <<<NEWHTML
-</select>
 </td></tr>
             <tr ><td><label for="bbid">bbid:</label></td>
                 <td>
