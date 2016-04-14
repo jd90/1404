@@ -95,7 +95,7 @@ session_start();
             $( "#datein" ).datepicker()({ dateFormat: 'dd-mm-yyyy' }).val();
         });
         $(function() {
-            $( "#dateout" ).datepicker()({ dateFormat: 'dd-mm-yyyy' }).val();
+            $( "#datein" ).datepicker()({ dateFormat: 'dd-mm-yyyy' }).val();
         });
     </script>
 </head>
