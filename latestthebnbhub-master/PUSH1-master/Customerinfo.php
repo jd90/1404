@@ -399,7 +399,13 @@ try{
 <<<NEWHTML
 
             <option value="{$row[roomname]}">{$row[roomname]}</option>
-
+</select>
+            </td></tr>
+            <tr ><td><label for="cost">cost:</label></td>
+                <td>
+                <input type="text" name="cost" value="{$row[price]}" readonly>{$row[price]}</option>
+                 </td>
+            </tr>
 NEWHTML;
         print($newhtml);
     }
@@ -412,8 +418,7 @@ catch(PDOException $e)
 ?>
 
 
-        </select>
-            </td></tr>
+
 
 
             <tr><td>
@@ -458,6 +463,7 @@ catch(PDOException $e)
 
 
             </tr><tr>
+
             <td>
                 <label for="telephone">Telephone: *</label></td>
             <td><input type="text" id="telephone" class="inputform" name="telephone" placeholder="Enter your telephone number" size="20" maxlength="20" required /></td>
@@ -469,19 +475,30 @@ catch(PDOException $e)
 
 
 
-            <tr hidden><td>
-                    <label for="bbemail">B&B Email:</label></td>
-                <td>
                     <?php
                     $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
                     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
                     try{
-                        $st = $conn-> query("SELECT * FROM [B&B] WHERE [bbid] = '100000'");
+                        $st = $conn-> query("SELECT * FROM [B&B] WHERE [bbid] = '$bbid'");
                         foreach($st->fetchAll() as $row) {
                             $newhtml =
                                 <<<NEWHTML
 
-                             <input type="text" name="bbemail" value="{$row[bb_email]}" readonly>{$row[bb_email]}</option>
+            <tr ><td><label for="bbemail">B&B Email:</label></td>
+                <td>
+                <input type="text" name="bbemail" value="{$row[bb_email]}" readonly>{$row[bb_email]}</option>
+                 </td>
+            </tr>
+            <tr ><td><label for="checkin">B&B Email:</label></td>
+                <td>
+                <input type="text" name="checkin" value="{$row[checkin]}" readonly>{$row[checkin]}</option>
+                 </td>
+            </tr>
+            <tr ><td><label for="checkout">B&B Email:</label></td>
+                <td>
+                <input type="text" name="checkout" value="{$row[checkout]}" readonly>{$row[checkout]}</option>
+                 </td>
+            </tr>
 NEWHTML;
                             print($newhtml);
                         }
