@@ -395,14 +395,14 @@ $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 try{
     $st = $conn-> query("SELECT * FROM [room] WHERE [bbid] = '$bbid'");
     foreach($st->fetchAll() as $row) {
-        $newhtml = $newhtml.
+        $newhtml2 = $newhtml2.
 <<<NEWHTML
 
             <option value="{$row[roomname]}">{$row[roomname]}</option>
 NEWHTML;
     }
             foreach($st->fetchAll() as $row) {
-        $newhtml = $newhtml.
+        $newhtml2 = $newhtml2.
 <<<NEWHTML
 </select>
 </td></tr>
@@ -423,7 +423,7 @@ NEWHTML;
                  </td>
             </tr>
 NEWHTML;
-        print($newhtml);
+        print($newhtml2);
     }
 }
 catch(PDOException $e)
