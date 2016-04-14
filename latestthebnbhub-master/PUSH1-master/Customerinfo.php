@@ -408,7 +408,7 @@ try{
             </tr>
             <tr ><td><label for="roomid">roomid:</label></td>
                 <td>
-                <input type="text" name="roomid" value="£{$row[roomid]}" readonly>£{$row[roomid]}</option>
+                <input type="text" name="roomid" value="{$row[roomid]}" readonly>{$row[roomid]}</option>
                  </td>
             </tr>
 NEWHTML;
