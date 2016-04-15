@@ -92,10 +92,10 @@ session_start();
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         $(function() {
-            $( "#datein" ).datepicker({ dateFormat: 'yy-mm-dd' });
+            $( "#datein" ).datepicker({ dateFormat: 'yy/mm/dd' });
         });
         $(function() {
-            $( "#dateout" ).datepicker({ dateFormat: 'yy-mm-dd' });
+            $( "#dateout" ).datepicker({ dateFormat: 'yy/mm/dd' });
         });
     </script>
 </head>
