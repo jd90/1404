@@ -220,8 +220,8 @@ session_start();
 
         <?php
         $city = $_POST['location'];
-        $datein = date("m/d/y", strtotime($_POST['datein']));
-        $dateout = date("m/d/y", strtotime($_POST['dateout']));
+        $datein = date("y/m/d", strtotime($_POST['datein']));
+        $dateout = date("y/m/d", strtotime($_POST['dateout']));
         echo "".$datein." ".$dateout;
 
         $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
@@ -229,16 +229,13 @@ session_start();
         try{
             $st = $conn-> query("SELECT * FROM [B&B] WHERE [city] = '$city'
                                  AND [bbid] NOT IN (
-            SELECT [bbid]
-FROM [Bookings]
+            SELECT [bbid] FROM [Bookings]
 WHERE [bookingenddate]  BETWEEN '$datein' AND '$dateout'
-            AND [bookingstartdate]  BETWEEN '$datein' AND '$dateout'
-            AND [bbid] IN (
+AND [bookingstartdate]  BETWEEN '$datein' AND '$dateout'
+AND [bbid] IN (
 
-                SELECT [bbid]
-FROM [Bookings]
+SELECT [bbid] FROM [Bookings]
 WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )
-
 )
         )");
 
