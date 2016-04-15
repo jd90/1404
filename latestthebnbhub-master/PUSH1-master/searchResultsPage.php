@@ -220,8 +220,8 @@ session_start();
 
         <?php
         $city = $_POST['location'];
-        $datein = date("y/m/d", strtotime($_POST['datein']));
-        $dateout = date("y/m/d", strtotime($_POST['dateout']));
+        $datein = $_POST['datein'];
+        $dateout = $_POST['dateout'];
         echo "".$datein." ".$dateout;
 
         $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
