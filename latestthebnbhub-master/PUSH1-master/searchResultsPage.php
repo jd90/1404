@@ -258,11 +258,11 @@ WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )
                         <div class="table5">
 
 
-<a href="Customerinfo.php?bbid={$row[bbid]}" id="nodec">
+<a href="Customerinfo.php?bbid={$row[bbid]}&dateout={$dateout}&datein={$datein}" id="nodec">
 
 <table border="0" cellpadding="5">
 
-<form action="Customerinfo.php?bbid={$row[bbid]}" method="post">
+<form action="Customerinfo.php?bbid={$row[bbid]}&dateout={$dateout}&datein={$datein}" method="post">
                        <tr hidden><td>
                     <label for="bbname">BBname:</label></td>
                 <td> <input type="text" id="bbname" name="bbname" value="{$row[bbname]}" readonly></option>
