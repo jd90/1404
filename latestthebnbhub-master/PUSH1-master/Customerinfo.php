@@ -170,7 +170,15 @@ $bbid = $_GET['bbid'];
 $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
 $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 try{
-    $st = $conn-> query("SELECT * FROM [room] WHERE [bbid] = '$bbid'");
+    $st = $conn-> query("SELECT * FROM [room] WHERE [bbid] = '$bbid'
+    AND [roomid]  NOT IN (
+        SELECT [roomid] FROM [Bookings]
+WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
+    AND [bookingstartdate]  BETWEEN '$datein' AND '$dateout'
+    AND [roomid] NOT IN (
+
+        SELECT [roomid] FROM [Bookings]
+WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )");
     foreach($st->fetchAll() as $row1) {
 
         $newhtml =
@@ -402,6 +410,7 @@ WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
 
         SELECT [roomid] FROM [Bookings]
 WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )");
+
     foreach($st->fetchAll() as $row) {
         $newhtmlw =
 <<<NEWHTML
