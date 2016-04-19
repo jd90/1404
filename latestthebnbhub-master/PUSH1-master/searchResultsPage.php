@@ -242,7 +242,7 @@ WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
                 SELECT [roomid] FROM [Bookings]
 WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )
 )
-        )");
+        ))");
 
 
 
