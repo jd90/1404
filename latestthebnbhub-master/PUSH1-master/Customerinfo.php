@@ -92,6 +92,9 @@ session_start();
 
 <?php
 $bbid = $_GET['bbid'];
+$datein=$_GET['datein'];
+$dateout=$_GET['dateout'];
+
 $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
 $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 try{

@@ -349,7 +349,7 @@ NEWHTML;
                     $newhtml =
                         <<<NEWHTML
                             <div class="table5">
-<a href="Customerinfo.php?bbid={$row[bbid]}" id="nodec"><table border="0" cellpadding="5">
+<a href="Customerinfo.php?bbid={$row[bbid]}&dateout={$dateout}&datein={$datein}" id="nodec"><table border="0" cellpadding="5">
 
 
 <form action="Customerinfo.php?bbid={$row[bbid]}" method="post">
