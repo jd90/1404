@@ -607,3 +607,18 @@ NEWHTML;
 </section>
 </body>
 </html>
+
+
+
+
+$st = $conn-> query("SELECT * FROM [B&B] WHERE [city] = '$city'
+AND [bbid]  NOT IN (
+SELECT [bbid] FROM [Bookings]
+WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
+AND [bookingstartdate]  BETWEEN '$datein' AND '$dateout'
+AND [bbid] NOT IN (
+
+SELECT [bbid] FROM [Bookings]
+WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )
+)
+)");

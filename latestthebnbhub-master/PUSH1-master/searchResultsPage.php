@@ -227,14 +227,19 @@ session_start();
         $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         try{
-            $st = $conn-> query("SELECT * FROM [B&B] WHERE [city] = '$city'
-            AND [bbid]  NOT IN (
-                SELECT [bbid] FROM [Bookings]
+            $st = $conn-> query("SELECT DISTINCT * FROM [B&B] WHERE [city] = '$city'
+            AND [bbid] IN (
+
+            SELECT [bbid] FROM [room]
+            WHERE[roomid] NOT IN (
+
+            )
+                SELECT [roomid] FROM [Bookings]
 WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
             AND [bookingstartdate]  BETWEEN '$datein' AND '$dateout'
-            AND [bbid] NOT IN (
+            AND [roomid] NOT IN (
 
-                SELECT [bbid] FROM [Bookings]
+                SELECT [roomid] FROM [Bookings]
 WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )
 )
         )");
