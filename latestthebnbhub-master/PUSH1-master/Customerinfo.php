@@ -178,7 +178,7 @@ WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
     AND [roomid] NOT IN (
 
         SELECT [roomid] FROM [Bookings]
-WHERE [bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )");
+WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )))");
     foreach($st->fetchAll() as $row1) {
 
         $newhtml =
@@ -409,7 +409,7 @@ WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
     AND [roomid] NOT IN (
 
         SELECT [roomid] FROM [Bookings]
-WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' ))");
+WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )))");
 
     foreach($st->fetchAll() as $row) {
         $newhtmlw =
@@ -437,7 +437,7 @@ WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
     AND [roomid] NOT IN (
 
         SELECT [roomid] FROM [Bookings]
-WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' ))");
+WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )))");
 
 
 
