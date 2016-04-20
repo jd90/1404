@@ -171,16 +171,16 @@ NEWHTML;
             {print"$e";}
             ?>
 
-            <form method=\"post\" action=\"availability.php?roomid={$roomid}&roomname={$roomname}\">
-                <table class=\"table1\">
+            <form method="post" action="availability.php?roomid={$roomid}&roomname={$roomname}">
+                <table class="table1">
 
                     <tr>
                         <td>Set Unavailable: </td>
 
 
                     <tr>
-                        <td colspan=\"1\"><label for="bookingstart"></label></td>
-                        <td colspan=\"1\"><label for="bookingend"></label></td>
+                        <td colspan="1"><label for="bookingstart"></label></td>
+                        <td colspan="1"><label for="bookingend"></label></td>
                     </tr>
 
                     <tr>
@@ -199,12 +199,12 @@ NEWHTML;
 
 
                     <tr>
-                        <td><label for=\"bookingstart\">Booking From: </label></td>
-                        <td><input type=\"text\" id=\"bookingstart\" name=\"bookingstart\" value='' ></td></tr>
+                        <td><label for="bookingstart">Booking From: </label></td>
+                        <td><input type="text" id="bookingstart" name="bookingstart" value='' ></td></tr>
                     <tr>
                     <tr>
-                        <td><label for=\"bookingend\">Booking To: </label></td>
-                        <td><input type=\"text\" id=\"bookingend\" name=\"bookingend\" value=''></td></tr>
+                        <td><label for="bookingend">Booking To: </label></td>
+                        <td><input type="text\" id="bookingend" name="bookingend" value=''></td></tr>
                     <tr>
                     <tr hidden>
                         <td><label for='roomid'>Booking To: </label></td>
