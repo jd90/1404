@@ -132,7 +132,7 @@ session_start();
                     <tr><td>{$row[price]}</td>
 
             </tr>
-            <td><input type="submit" value="Change Availability"></input></td></tr>
+            <td><input type="submit" value="View/Change Availability"></input></td></tr>
             </table>
 NEWHTML;
                     print($newhtml);
