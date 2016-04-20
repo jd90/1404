@@ -81,7 +81,7 @@ session_start();
 
             $roomname = $_GET['roomname'];
 
-            echo "<h1 style='color:black;'>Bookings for {$roomname}</h1>";
+            echo "<h1 style='color:black;'>Bookings for: {$roomname}</h1>";
 
             ?>
 
@@ -97,7 +97,7 @@ session_start();
             $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
             $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
             try{
-                $st = $conn-> query("SELECT * FROM [Room] WHERE [bbid] = '$bbid'");
+                $st = $conn-> query("SELECT * FROM [Bookings] WHERE [roomname] = '$roomname'");
                 foreach($st->fetchAll() as $row) {
                     $newhtml =
                         <<<NEWHTML
@@ -105,9 +105,21 @@ session_start();
                        <table class="table1">
 
                     <tr>
+                   <td><label for="roomname">Room Name: </label></td>
+                   <td><input type="text" id="roomname" name="roomname" value="{$row[roomname]}" readonly></td></tr>
+                    <tr>
+                      <tr>
+                   <td><label for="bookingstart">Booking From: </label></td>
+                   <td><input type="text" id="bookingstart" name="bookingstart" value="{$row[bookingstartdate]}" readonly></td></tr>
+                    <tr>
+                    <tr>
+                   <td><label for="bookingend">Booking To: </label></td>
+                   <td><input type="text" id="bookingend" name="bookingend" value="{$row[bookingenddate]}" readonly></td></tr>
+                    <tr>
                    <td>{$row[roomname]}</td></tr>
 
-            <td><input type="submit" value="View/Change Availability."></input></td></tr>
+
+            <td><input type="submit" value="Remove."></input></td></tr>
             </table>
 NEWHTML;
                     print($newhtml);
