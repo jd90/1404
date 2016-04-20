@@ -557,6 +557,16 @@ catch(PDOException $e)
                 <input type="text" name="checkout" value="{$row[checkout]}" readonly>{$row[checkout]}</option>
                  </td>
             </tr>
+            <tr hidden><td><label for="datein">datein:</label></td>
+                <td>
+                <input type="text" name="datein" value="{$datein}" readonly>{$datein}</option>
+                 </td>
+            </tr>
+            <tr hidden><td><label for="dateout">dateout:</label></td>
+                <td>
+                <input type="text" name="dateout" value="{$dateout}" readonly>{$dateout}</option>
+                 </td>
+            </tr>
             <tr hidden><td><label for="bbname">bbname:</label></td>
                 <td>
                 <input type="text" name="bbname" value="{$row[bbname]}" readonly>{$row[bbname]}</option>

@@ -9,8 +9,8 @@ $roomname = $_POST['roomname'];
 $bb_email = $_POST['bb_email'];
 $bookingid = $_POST['bookingid'];
 $bbname = $_POST['bbname'];
-$bookingstartdate = $_POST['bookingstardate'];
-$bookingenddate = $_POST['bookingenddate'];
+$bookingstartdate = $_POST['datein'];
+$bookingenddate = $_POST['dateout'];
 $checkin = $_POST['checkin'];
 $checkout = $_POST['checkout'];
 $cost = $_POST['cost'];
@@ -212,8 +212,8 @@ $roomname = $_POST['roomname'];
 $bb_email = $_POST['bb_email'];
 $bookingid = $_POST['bookingid'];
 $bbname = $_POST['bbname'];
-$bookingstartdate = $_POST['bookingstardate'];
-$bookingenddate = $_POST['bookingenddate'];
+$bookingstartdate = $_POST['datein'];
+$bookingenddate = $_POST['dateout'];
 //$cost = $_POST['cost'];
 $address = $_POST['address'];
 $address2 = $_POST['address2'];
@@ -226,9 +226,9 @@ $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Databa
 $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 try {
     $st = $conn->query("INSERT INTO Bookings ([bbid],[cost], [roomid], [bookingtype], [roomname],[cust_title],[cust_firstname],[cust_surname],[cust_telephone],[cust_email],
-                                        [cust_address_line1], [cust_address_line2],[cust_postcode],[cust_city])
+                                        [cust_address_line1], [cust_address_line2],[cust_postcode],[cust_city], [bookingstartdate], [bookingenddate])
                                         VALUES ('".$bbid."','".$cost."','".$roomid."','"."1"."','".$roomname."','".$title."','".$firstname."','".$surname."','".$telephone."','".$email."',
-                                        '".$address."','".$address2."','".$postcode."','".$city."')");
+                                        '".$address."','".$address2."','".$postcode."','".$city."','".$bookingstartdate."','".$bookingenddate."')");
     {
         $newhtml =
             <<<NEWHTML
