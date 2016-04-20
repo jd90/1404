@@ -90,6 +90,7 @@ if($_POST['bookingstart'] != null){
 
 
 
+
 ?>
 
 
@@ -161,8 +162,8 @@ NEWHTML;
                    <td><input type=\"text\" id=\"bookingend\" name=\"bookingend\" value=''></td></tr>
                     <tr>
                     <tr hidden>
-                   <td><label for="roomid">Booking To: </label></td>
-                   <td><input type="text" id="roomid" name="roomid" value='{$roomid}'></td></tr>
+                   <td><label for='roomid'>Booking To: </label></td>
+                   <td><input type='text' id='roomid' name='roomid' value='{$roomid}'></td></tr>
                     <tr>
 
             <td><input type=\"submit\" value=\"Cancel\"> </input></td></tr>
