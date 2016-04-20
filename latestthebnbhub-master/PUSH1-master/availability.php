@@ -78,6 +78,9 @@ if($_POST['bookingstart'] != null){
     $bookend = $_POST['bookingend'];
     $roomid = $_POST['roomid'];
 
+
+
+
     $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
@@ -87,9 +90,19 @@ if($_POST['bookingstart'] != null){
         print"$e";
     }
 }
+if($_POST['bookingstartcancel'] != null) {
+    $bookstart = $_POST['bookingstartcancel'];
+    $bookend = $_POST['bookingendcancel'];
 
-
-
+    $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        $st1 = "DELETE FROM [bookings]  WHERE ([bookingenddate] = '" . $bookend . "' AND [bookingstartdate] = '" .  $bookstart . "'')";
+        $conn->exec($st1);
+    } catch (PDOException $e) {
+        print"$e";
+    }
+}
 
 ?>
 
@@ -131,19 +144,19 @@ if($_POST['bookingstart'] != null){
                 foreach($st->fetchAll() as $row) {
                     $newhtml =
                         <<<NEWHTML
-                        <form method="post" action="availability.php">
+                        <form method="post" action="availability.php?roomid={$roomid}&roomname={$roomname}">
                        <table class="table1">
 
                     <tr>
-                   <td><label for="roomname">Customer Name: </label></td>
+                   <td><label for="roomname">Customer Name : </label></td>
                    <td><input type="text" id="roomname" name="roomname" value="{$row[cust_firstname]} {$row[cust_surname]}" readonly></td></tr>
                     <tr>
                       <tr>
-                   <td><label for="bookingstart">Booking From: </label></td>
+                   <td><label for="bookingstartcancel">Booking From: </label></td>
                    <td><input type="text" id="bookingstart" name="bookingstart" value="{$row[bookingstartdate]}" readonly></td></tr>
                     <tr>
                     <tr>
-                   <td><label for="bookingend">Booking To: </label></td>
+                   <td><label for="bookingendcancel">Booking To: </label></td>
                    <td><input type="text" id="bookingend" name="bookingend" value="{$row[bookingenddate]}" readonly></td></tr>
                     <tr>
                    <td>{$row[roomname]}</td></tr>
