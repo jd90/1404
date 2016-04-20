@@ -111,6 +111,13 @@ if($_POST['bookingstart'] != null){
                 $roomname = $_GET['roomname'];
             $roomid = $_GET['roomid'];
 
+            if($_POST['roomname'] != null){
+
+                $roomname = $_POST['roomname'];
+                $roomid = $_POST['roomid'];
+
+            }
+
 
             $email = $_SESSION['user'];
             if($_GET['bbid2'] != null ){
@@ -165,6 +172,12 @@ NEWHTML;
                    <td><label for='roomid'>Booking To: </label></td>
                    <td><input type='text' id='roomid' name='roomid' value='{$roomid}'></td></tr>
                     <tr>
+
+                    <tr hidden>
+                   <td><label for='roomname'>Booking To: </label></td>
+                   <td><input type='text' id='roomname' name='roomname' value='{$roomname}'></td></tr>
+                    <tr>
+
 
             <td><input type=\"submit\" value=\"Set\"> </input></td></tr>
             </table>";
