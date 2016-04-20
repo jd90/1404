@@ -119,7 +119,7 @@ session_start();
                    <td>{$row[roomname]}</td></tr>
 
 
-            <td><input type="submit" value="Remove."></input></td></tr>
+            <td><input type="submit" value="Cancel."></input></td></tr>
             </table>
 NEWHTML;
                     print($newhtml);
