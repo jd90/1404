@@ -147,7 +147,7 @@ if($_POST['bookingstart'] != null){
 NEWHTML;
                     print($newhtml);
                 }
-                echo "<form method=\"post\" action=\"availability.php\">
+                echo "<form method=\"post\" action=\"availability.php?roomid={$roomid}&roomname={$roomname}\">
                        <table class=\"table1\">
 
                     <tr>
