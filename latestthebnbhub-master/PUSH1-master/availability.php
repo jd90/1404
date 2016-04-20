@@ -126,6 +126,25 @@ session_start();
 NEWHTML;
                     print($newhtml);
                 }
+                echo "<form method=\"post\" action=\"availability.php\">
+                       <table class=\"table1\">
+
+                    <tr>
+                   <td><input type='text' readonly>Set Unavailable: </input></td>
+
+                      <tr>
+                   <td><label for=\"bookingstart\">Booking From: </label></td>
+                   <td><input type=\"text\" id=\"bookingstart\" name=\"bookingstart\" value='' ></td></tr>
+                    <tr>
+                    <tr>
+                   <td><label for=\"bookingend\">Booking To: </label></td>
+                   <td><input type=\"text\" id=\"bookingend\" name=\"bookingend\" value=''></td></tr>
+                    <tr>
+                   <td>{$row[roomname]}</td></tr>
+
+
+            <td><input type=\"submit\" value=\"Cancel\">Cancel</input></td></tr>
+            </table>";
             }
             catch(PDOException $e)
             {print"$e";}
