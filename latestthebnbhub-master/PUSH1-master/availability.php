@@ -81,7 +81,7 @@ if($_POST['bookingstart'] != null){
     $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
-        $st1 = "INSERT INTO [bookings] ([bookingenddate], [bookingstartdate], [roomid]) VALUES ('" . $bookend . "','" . $bookstart . "','" . $roomid . "')";
+        $st1 = "INSERT INTO [bookings] ([bookingenddate], [bookingstartdate], [roomid], [cust_firstname]) VALUES ('" . $bookend . "','" . $bookstart . "','" . $roomid . "', 'UNAVAILABLE')";
         $conn->exec($st1);
     } catch (PDOException $e) {
         print"$e";
