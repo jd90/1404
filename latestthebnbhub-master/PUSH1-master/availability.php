@@ -166,7 +166,7 @@ NEWHTML;
                    <td><input type='text' id='roomid' name='roomid' value='{$roomid}'></td></tr>
                     <tr>
 
-            <td><input type=\"submit\" value=\"Cancel\"> </input></td></tr>
+            <td><input type=\"submit\" value=\"Set\"> </input></td></tr>
             </table>";
             }
             catch(PDOException $e)
