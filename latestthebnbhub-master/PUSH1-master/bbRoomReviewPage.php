@@ -133,7 +133,7 @@ session_start();
                     <tr><td>{$row[price]}</td>
 
             </tr>
-            <td><a href="availability.php?roomname={$row[roomname]}"><input type="submit" value="View/Change Availability"></a></input></td></tr>
+            <td><a href="availability.php?roomid={$row[roomid]}&roomname={$row[roomname]}"><input type="submit" value="View/Change Availability"></a></input></td></tr>
             </table>
 NEWHTML;
                     print($newhtml);

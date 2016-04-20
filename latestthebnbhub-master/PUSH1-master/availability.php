@@ -88,7 +88,7 @@ session_start();
             <?php
 
                 $roomname = $_GET['roomname'];
-
+            $roomid = $_GET['roomid'];
 
 
             $email = $_SESSION['user'];
@@ -97,7 +97,7 @@ session_start();
             $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
             $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
             try{
-                $st = $conn-> query("SELECT * FROM [Bookings] WHERE [roomname] = '$roomname'");
+                $st = $conn-> query("SELECT * FROM [Bookings] WHERE [roomid] = '$roomid'");
                 foreach($st->fetchAll() as $row) {
                     $newhtml =
                         <<<NEWHTML
