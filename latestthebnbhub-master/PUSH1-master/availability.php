@@ -148,7 +148,7 @@ if($_POST['bookingstartcancel'] != null) {
                        <table class="table1">
 
                     <tr>
-                   <td><label for="roomname">Customer Name : </label></td>
+                   <td><label for="roomname">Customer Name: </label></td>
                    <td><input type="text" id="roomname" name="roomname" value="{$row[cust_firstname]} {$row[cust_surname]}" readonly></td></tr>
                     <tr>
                       <tr>
