@@ -97,7 +97,7 @@ if($_POST['bookingstartcancel'] != null) {
     $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
-        $st1 = "DELETE FROM [bookings]  WHERE ([bookingenddate] = '" . $bookend . "' AND [bookingstartdate] = '" .  $bookstart . "'')";
+        $st1 = "DELETE FROM [bookings]  WHERE ([bookingenddate] = '" . $bookend . "' AND [bookingstartdate] = '" .  $bookstart . "')";
         $conn->exec($st1);
     } catch (PDOException $e) {
         print"$e";
@@ -148,7 +148,7 @@ if($_POST['bookingstartcancel'] != null) {
                        <table class="table1">
 
                     <tr>
-                   <td><label for="roomname">Customer Name: </label></td>
+                   <td><label for="roomname">Customer Name : </label></td>
                    <td><input type="text" id="roomname" name="roomname" value="{$row[cust_firstname]} {$row[cust_surname]}" readonly></td></tr>
                     <tr>
                       <tr>
