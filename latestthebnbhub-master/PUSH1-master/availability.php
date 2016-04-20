@@ -13,17 +13,6 @@ session_start();
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <title>Register: theB&Bhub</title>
-
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script>
-        $(function() {
-            $( "#bookingstart" ).datepicker({ dateFormat: 'yy/mm/dd' });
-        });
-        $(function() {
-            $( "#bookingend" ).datepicker({ dateFormat: 'yy/mm/dd' });
-        });
-    </script>
 </head>
 
 <section class="container" id="banner">
@@ -165,60 +154,39 @@ if($_POST['bookingstart'] != null){
 NEWHTML;
                     print($newhtml);
                 }
-                echo "";
+                echo "<form method=\"post\" action=\"availability.php?roomid={$roomid}&roomname={$roomname}\">
+                       <table class=\"table1\">
+
+                    <tr>
+                   <td>Set Unavailable: </td>
+
+                      <tr>
+                   <td><label for=\"bookingstart\">Booking From: </label></td>
+                   <td><input type=\"text\" id=\"bookingstart\" name=\"bookingstart\" value='' ></td></tr>
+                    <tr>
+                    <tr>
+                   <td><label for=\"bookingend\">Booking To: </label></td>
+                   <td><input type=\"text\" id=\"bookingend\" name=\"bookingend\" value=''></td></tr>
+                    <tr>
+                    <tr hidden>
+                   <td><label for='roomid'>Booking To: </label></td>
+                   <td><input type='text' id='roomid' name='roomid' value='{$roomid}'></td></tr>
+                    <tr>
+
+                    <tr hidden>
+                   <td><label for='roomname'>Booking To: </label></td>
+                   <td><input type='text' id='roomname' name='roomname' value='{$roomname}'></td></tr>
+                    <tr>
+
+
+            <td><input type=\"submit\" value=\"Set\"> </input></td></tr>
+            </table>";
             }
             catch(PDOException $e)
             {print"$e";}
             ?>
 
-            <form method="post" action="availability.php?roomid={$roomid}&roomname={$roomname}">
-                <table class="table1">
 
-                    <tr>
-                        <td>Set Unavailable: </td>
-
-
-                    <tr>
-                        <td colspan="1"><label for="bookingstart"></label></td>
-                        <td colspan="1"><label for="bookingend"></label></td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <p>Date: <input type="text" name="bookingstart" id="bookingstart"></p>
-                        </td>
-                        <td>
-                            <p>Date: <input type="text" name="bookingend" id="bookingend"></p>
-                        </td>
-                    </tr>
-
-
-
-
-
-
-
-                    <tr>
-                        <td><label for="bookingstart">Booking From: </label></td>
-                        <td><input type="text" id="bookingstart" name="bookingstart" value='' ></td></tr>
-                    <tr>
-                    <tr>
-                        <td><label for="bookingend">Booking To: </label></td>
-                        <td><input type="text\" id="bookingend" name="bookingend" value=''></td></tr>
-                    <tr>
-                    <tr hidden>
-                        <td><label for='roomid'>Booking To: </label></td>
-                        <td><input type='text' id='roomid' name='roomid' value='{$roomid}'></td></tr>
-                    <tr>
-
-                    <tr hidden>
-                        <td><label for='roomname'>Booking To: </label></td>
-                        <td><input type='text' id='roomname' name='roomname' value='{$roomname}'></td></tr>
-                    <tr>
-
-
-                        <td><input type=\"submit\" value=\"Set\"> </input></td></tr>
-                </table>
 
 
         </table>
