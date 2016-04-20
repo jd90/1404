@@ -130,7 +130,7 @@ NEWHTML;
                        <table class=\"table1\">
 
                     <tr>
-                   <td><input type='text' readonly>Set Unavailable: </input></td>
+                   <td>Set Unavailable: </td>
 
                       <tr>
                    <td><label for=\"bookingstart\">Booking From: </label></td>
@@ -143,7 +143,7 @@ NEWHTML;
                    <td>{$row[roomname]}</td></tr>
 
 
-            <td><input type=\"submit\" value=\"Cancel\">Cancel</input></td></tr>
+            <td><input type=\"submit\" value=\"Cancel\"> </input></td></tr>
             </table>";
             }
             catch(PDOException $e)
