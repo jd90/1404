@@ -81,7 +81,7 @@ session_start();
 
             $roomname = $_GET['roomname'];
 
-            echo "<h1>Bookings for {$roomname}</h1>";
+            echo "<h1 style='colour:black'>Bookings for {$roomname}</h1>";
 
             ?>
 
