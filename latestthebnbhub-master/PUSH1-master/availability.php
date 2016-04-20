@@ -70,7 +70,27 @@ session_start();
 
 <body>
 
+<?php
 
+if($_POST['bookingstart'] != null){
+
+    $bookstart = $_POST['bookingstart'];
+    $bookend = $_POST['bookingend'];
+    $roomid = $_POST['roomid'];
+
+    $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        $st1 = "INSERT INTO [bookings] ([bookingenddate], [bookingstartdate], [roomid]) VALUES ('" . $bookend . "','" . $bookstart . "','" . $roomid . "')";
+        $conn->exec($st1);
+    } catch (PDOException $e) {
+        print"$e";
+    }
+}
+
+
+
+?>
 
 
 <main>
@@ -140,8 +160,10 @@ NEWHTML;
                    <td><label for=\"bookingend\">Booking To: </label></td>
                    <td><input type=\"text\" id=\"bookingend\" name=\"bookingend\" value=''></td></tr>
                     <tr>
-                   <td>{$row[roomname]}</td></tr>
-
+                    <tr hidden>
+                   <td><label for="roomid">Booking To: </label></td>
+                   <td><input type="text" id="roomid" name="roomid" value='{$roomid}'></td></tr>
+                    <tr>
 
             <td><input type=\"submit\" value=\"Cancel\"> </input></td></tr>
             </table>";
