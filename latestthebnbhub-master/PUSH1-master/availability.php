@@ -163,6 +163,7 @@ if($_POST['bookingstartcancel'] != null) {
 
 
             <td><input type="submit" value="Cancel"></input></td></tr>
+            </form>
             </table>
 NEWHTML;
                     print($newhtml);
