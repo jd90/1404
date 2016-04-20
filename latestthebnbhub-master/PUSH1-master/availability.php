@@ -77,6 +77,13 @@ session_start();
     <!--onsubmit="return validateOwner(this);"  javascript method-->
     <div class="">
         <table class="table1">
+            <?php
+
+            $roomname = $_GET['roomname'];
+
+            echo "<h1>Bookings for {$roomname}</h1>";
+
+            ?>
 
             <?php
 
