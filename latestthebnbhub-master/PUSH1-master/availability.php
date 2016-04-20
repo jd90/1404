@@ -79,44 +79,14 @@ session_start();
         <table class="table1">
 
             <?php
-            /**
-             * Created by PhpStorm.
-             * User: 9540730
-             * Date: 25/02/2016
-             * Time: 13:45
-             */
+
+                $roomname = $_GET['roomname'];
 
 
 
-            if($_POST['bbname']!= null) {
-                //$ownerid= $_POST['ownerid'];   [ownerid] '".$ownerid."',
-                $bbid = $_POST['bbid'];
-                $roomname = $_POST['roomname'];
-                $roomdescription = $_POST['roomdescription'];
-                $price = $_POST['price'];
-                $nbrofpeople =$_POST['nbrofpeople'];
-                $imageurl = $_POST['imageurl'];
-
-
-
-
-
-                $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                try {
-                    $st1 = "INSERT INTO [Room] ([bbid], [roomname], [roomdescription],[price], [numberofadults]) VALUES ('" . $bbid . "','" . $roomname . "','" . $roomdescription . "','" . $price . "','" . $nbrofpeople . "')";
-                    $conn->exec($st1);
-                } catch (PDOException $e) {
-                    print"$e";
-                }
-            }
-            ?>
-
-
-            <?php
             $email = $_SESSION['user'];
             if($_GET['bbid2'] != null ){
-            $bbid = $_GET['bbid2'];}
+                $bbid = $_GET['bbid2'];}
             $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
             $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
             try{
@@ -124,16 +94,13 @@ session_start();
                 foreach($st->fetchAll() as $row) {
                     $newhtml =
                         <<<NEWHTML
-
+                        <form method="post" action="availability.php">
                        <table class="table1">
 
-                   <tr><td>{$row[roomname]}</td></tr>
+                    <tr>
+                   <td>{$row[roomname]}</td></tr>
 
-                    <tr><td id="bbname">{$row[roomdescription]}</td></tr>
-                    <tr><td>{$row[price]}</td>
-
-            </tr>
-            <td><a href="availability.php?roomname={$row[roomname]}"><input type="submit" value="View/Change Availability"></a></input></td></tr>
+            <td><input type="submit" value="View/Change Availability"></input></td></tr>
             </table>
 NEWHTML;
                     print($newhtml);
@@ -142,6 +109,9 @@ NEWHTML;
             catch(PDOException $e)
             {print"$e";}
             ?>
+
+
+
 
         </table>
 </main>
