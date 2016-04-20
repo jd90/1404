@@ -18,10 +18,10 @@ session_start();
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         $(function() {
-            $( "#datein" ).datepicker({ dateFormat: 'yy/mm/dd' });
+            $( "#bookingstart" ).datepicker({ dateFormat: 'yy/mm/dd' });
         });
         $(function() {
-            $( "#dateout" ).datepicker({ dateFormat: 'yy/mm/dd' });
+            $( "#bookingend" ).datepicker({ dateFormat: 'yy/mm/dd' });
         });
     </script>
 </head>
@@ -173,8 +173,8 @@ NEWHTML;
 
 
     <tr>
-                <td colspan=\"1\"><label for=\"bookingstart\">Check In Date:</label></td>
-                <td colspan=\"1\"><label for=\"bookingend\">Check Out Date:</label></td>
+                <td colspan=\"1\"><label for=\"bookingstart\">Date From:</label></td>
+                <td colspan=\"1\"><label for=\"bookingend\">Date To:</label></td>
             </tr>
 
             <tr>
