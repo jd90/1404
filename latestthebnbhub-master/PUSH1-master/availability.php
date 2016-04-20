@@ -106,7 +106,7 @@ session_start();
 
                     <tr>
                    <td><label for="roomname">Customer Name: </label></td>
-                   <td><input type="text" id="roomname" name="roomname" value="{$row[cust_firstname] {$row[cust_surname]}}" readonly></td></tr>
+                   <td><input type="text" id="roomname" name="roomname" value="{$row[cust_firstname]}{$row[cust_surname]}}" readonly></td></tr>
                     <tr>
                       <tr>
                    <td><label for="bookingstart">Booking From: </label></td>
