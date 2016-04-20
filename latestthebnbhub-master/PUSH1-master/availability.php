@@ -148,16 +148,16 @@ if($_POST['bookingstartcancel'] != null) {
                        <table class="table1">
 
                     <tr>
-                   <td><label for="roomname">Customer Name : </label></td>
+                   <td><label for="roomname">Customer Name: </label></td>
                    <td><input type="text" id="roomname" name="roomname" value="{$row[cust_firstname]} {$row[cust_surname]}" readonly></td></tr>
                     <tr>
                       <tr>
                    <td><label for="bookingstartcancel">Booking From: </label></td>
-                   <td><input type="text" id="bookingstart" name="bookingstart" value="{$row[bookingstartdate]}" readonly></td></tr>
+                   <td><input type="text" id="bookingstartcancel" name="bookingstartcancel" value="{$row[bookingstartdate]}" readonly></td></tr>
                     <tr>
                     <tr>
                    <td><label for="bookingendcancel">Booking To: </label></td>
-                   <td><input type="text" id="bookingend" name="bookingend" value="{$row[bookingenddate]}" readonly></td></tr>
+                   <td><input type="text" id="bookingendcancel" name="bookingendcancel" value="{$row[bookingenddate]}" readonly></td></tr>
                     <tr>
                    <td>{$row[roomname]}</td></tr>
 
