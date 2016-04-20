@@ -91,13 +91,13 @@ if($_POST['bookingstart'] != null){
     }
 }
 if($_POST['bookingstartcancel'] != null) {
-    $bookstart = $_POST['bookingstartcancel'];
-    $bookend = $_POST['bookingendcancel'];
+    $bookstart2 = $_POST['bookingstartcancel'];
+    $bookend2 = $_POST['bookingendcancel'];
 
     $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
-        $st1 = "DELETE FROM [bookings]  WHERE ([bookingenddate] = '" . $bookend . "' AND [bookingstartdate] = '" .  $bookstart . "')";
+        $st1 = "DELETE FROM [bookings]  WHERE ([bookingenddate] = '" . $bookend2 . "' AND [bookingstartdate] = '" .  $bookstart2 . "')";
         $conn->exec($st1);
     } catch (PDOException $e) {
         print"$e";
