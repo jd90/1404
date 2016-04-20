@@ -179,16 +179,16 @@ NEWHTML;
 
 
                     <tr>
-                        <td colspan=\"1\"><label for=\"bookingstart\">Date From:</label></td>
-                        <td colspan=\"1\"><label for=\"bookingend\">Date To:</label></td>
+                        <td colspan=\"1\"><label for="bookingstart"></label></td>
+                        <td colspan=\"1\"><label for="bookingend"></label></td>
                     </tr>
 
                     <tr>
                         <td>
-                            <p>Date: <input type=\"text\" name=\"bookingstart\" id=\"bookingstart\"></p>
+                            <p>Date: <input type="text" name="bookingstart" id="bookingstart"></p>
                         </td>
                         <td>
-                            <p>Date: <input type=\"text\" name=\"bookingend\" id=\"bookingend\"></p>
+                            <p>Date: <input type="text" name="bookingend" id="bookingend"></p>
                         </td>
                     </tr>
 
