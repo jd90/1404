@@ -4,8 +4,8 @@ form {
     font-family: 'Roboto', sans-serif;
     font-size: 12PT;
 }
-.ui-datepicker .ui-widget-content {
-    background: #999 none;
+.ui-datepicker {
+    background: #999;
 }
 h1{
 
