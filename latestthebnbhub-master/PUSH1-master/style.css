@@ -7,17 +7,9 @@ form {
 
 .ui-datepicker {
     background: #fcfcfc;
+    text-decoration-color: white;
 }
 .ui-datepicker-title{
-    background: #666699;
-}
-.ui-datepicker-prev{
-
-    background: #666699;
-}
-
-.ui-datepicker-next{
-
     background: #666699;
 }
  h1{
