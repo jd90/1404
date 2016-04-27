@@ -4,10 +4,14 @@ form {
     font-family: 'Roboto', sans-serif;
     font-size: 12PT;
 }
+
 .ui-datepicker {
     background: #fcfcfc;
 }
-h1{
+.ui-widget-title{
+    background: #fcfcfc;
+}
+ h1{
 
     font-size: 30px;
     color: white;
