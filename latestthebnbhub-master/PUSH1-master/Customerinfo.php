@@ -450,8 +450,14 @@ WHERE [bookingstartdate]   BETWEEN '$datein' AND '$dateout'
 
                 SELECT [roomid] FROM [Bookings]
 WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )
-)
-        )))");
+AND [roomid] NOT IN(
+SELECT [roomid] FROM [Bookings]
+WHERE [bookingstartdate]   LIKE '$datein'
+AND [roomid] NOT IN(
+SELECT [roomid] FROM [Bookings]
+WHERE [bookingenddate]   LIKE '$dateout'
+))
+        ))))");
 
 
 
