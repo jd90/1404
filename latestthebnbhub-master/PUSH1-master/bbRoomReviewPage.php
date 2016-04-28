@@ -98,6 +98,23 @@ session_start();
                 $imageurl = $_POST['imageurl'];
 
 
+                $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+                $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+                try{
+                    $st = $conn-> query("SELECT * FROM [Room] WHERE [roomname] = '$roomname'");
+                    foreach($st->fetchAll() as $row) {
+
+
+                   $roomid = $row[roomname];
+
+
+                    }
+                }
+                catch(PDOException $e)
+                {print"$e";}
+
+
+
                 $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 try {
