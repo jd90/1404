@@ -181,7 +181,7 @@ session_start();
                 </tr>
             <tr>
                 <td><label for="imageurl1">1st Image URL: *</label></td>
-                <td><input type="text" id="imageurl1" class="inputform" name="imageurl1" placeholder="Enter Image URL" size="30" maxlength="50" required /></td>
+                <td><input type="text" id="imageurl1" class="inputform" name="imageurl1" placeholder="Enter Image URL" size="30" maxlength="50" /></td>
                 <td><label for="imageurl2">4th Image URL: *</label></td>
                 <td><input type="text" id="imageurl2" class="inputform" name="imageurl2" placeholder="Enter Image URL" size="30" maxlength="50" /></td>
             </tr>
