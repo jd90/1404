@@ -104,7 +104,7 @@ session_start();
                 $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 try {
-                    $st1 = "INSERT INTO [Room] ([bbid], [roomname], [roomdescription],[price], [numberofadults]) VALUES ('" . $bbid . "','" . $roomname . "','" . $roomdescription . "','" . $price . "','" . $nbrofpeople . "')";
+                    $st1 = "INSERT INTO [Room] ([bbid], [roomname], [roomdescription],[price], [numberofpeople]) VALUES ('" . $bbid . "','" . $roomname . "','" . $roomdescription . "','" . $price . "','" . $nbrofpeople . "')";
                     $conn->exec($st1);
                 } catch (PDOException $e) {
                     print"$e";
