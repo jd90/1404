@@ -16,7 +16,7 @@ $password = $_POST['password'];
 $conn = new PDO ( "sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
 $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 try{
-  $st = $conn-> query("SELECT * FROM [Owner] WHERE [email] = '".$email."' AND [password] = '".$password."'");
+  $st = $conn-> query("SELECT * FROM [Owner] WHERE [owner_email] = '".$email."' AND [password] = '".$password."'");
 
     $name = "";
 
