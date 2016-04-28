@@ -114,7 +114,7 @@ session_start();
             $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             try {
-                $st1 = "INSERT INTO [B&B] ([ownerid], [bbname], [address],[addressline2], [city], [telephone], [email], [longitude], [latitude], [bbdescription], [region], [mobile], [checkin], [checkout], [pets], [postcode], [imageurl]) VALUES ('" . $ownerid . "','" . $bbname . "','" . $address . "','" . $addressline2 . "','" . $city . "','" . $telephone . "','" . $email . "','" . $longitude . "', '" . $latitude . "','" . $bbdescription . "','" . $region . "','" . $mobile . "', '" . $checkin . "', '" . $checkout . "', '" . $pets . "', '" . $postcode . "', '" . $imageurl . "')";
+                $st1 = "INSERT INTO [B&B] ([ownerid], [bbname], [address],[addressline2], [city], [telephone], [bb_email], [longitude], [latitude], [bbdescription], [region], [mobile], [checkin], [checkout], [pets], [postcode], [imageurl]) VALUES ('" . $ownerid . "','" . $bbname . "','" . $address . "','" . $addressline2 . "','" . $city . "','" . $telephone . "','" . $email . "','" . $longitude . "', '" . $latitude . "','" . $bbdescription . "','" . $region . "','" . $mobile . "', '" . $checkin . "', '" . $checkout . "', '" . $pets . "', '" . $postcode . "', '" . $imageurl . "')";
                 $conn->exec($st1);
             } catch (PDOException $e) {
                 print"$e";
