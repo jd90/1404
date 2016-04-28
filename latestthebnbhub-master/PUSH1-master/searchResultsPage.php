@@ -236,7 +236,11 @@ session_start();
 
                 SELECT [roomid] FROM [Bookings]
 WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
-            AND [bookingstartdate]  BETWEEN '$datein' AND '$dateout'
+AND [roomid] NOT IN (
+
+SELECT [roomid] FROM [Bookings]
+WHERE [bookingstartdate]   BETWEEN '$datein' AND '$dateout'
+
             AND [roomid] NOT IN (
 
                 SELECT [roomid] FROM [Bookings]
