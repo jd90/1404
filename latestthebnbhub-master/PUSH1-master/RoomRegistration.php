@@ -151,7 +151,7 @@ session_start();
             <tr>
                 <td colspan="4"><p><input type="submit" value="Submit" class="btn3" /></p></td>
                 </tr>
-        </table></form>
+        </table>
 
                 </section>
                 <section class="spacer" id="spacer">
@@ -171,7 +171,7 @@ session_start();
 
 
 
-    <form action="bbRoomReviewPage.php" method="POST">
+
 
         <table class="table3">
 
