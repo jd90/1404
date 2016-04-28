@@ -432,15 +432,26 @@ catch(PDOException $e)
 
 try{
     $newhtmlx ="";
-    $st = $conn-> query("SELECT * FROM [room] WHERE [bbid] = '$bbid'
-    AND [roomid]  NOT IN (
-        SELECT [roomid] FROM [Bookings]
-WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
-    AND [bookingstartdate]  BETWEEN '$datein' AND '$dateout'
-    AND [roomid] NOT IN (
+    $st = $conn-> query("SELECT DISTINCT * FROM [B&B] WHERE [city] = '$city'
+            AND [bbid] IN (
 
-        SELECT [roomid] FROM [Bookings]
-WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )))");
+            SELECT [bbid] FROM [room]
+            WHERE[roomid] NOT IN (
+
+
+                SELECT [roomid] FROM [Bookings]
+WHERE [bookingenddate]   BETWEEN '$datein' AND '$dateout'
+AND [roomid] NOT IN (
+
+SELECT [roomid] FROM [Bookings]
+WHERE [bookingstartdate]   BETWEEN '$datein' AND '$dateout'
+
+            AND [roomid] NOT IN (
+
+                SELECT [roomid] FROM [Bookings]
+WHERE ([bookingstartdate] < '$datein' AND [bookingenddate] > '$dateout' )
+)
+        ))");
 
 
 
