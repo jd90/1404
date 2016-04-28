@@ -107,6 +107,7 @@ session_start();
 
                    $roomid = $row[roomid];
 
+                        echo "1".$roomid;
 
                     }
                 }
@@ -133,7 +134,7 @@ session_start();
                         $st1 = "INSERT INTO [Images] ([imageurl], [roomid]) VALUES ('" . $imageurl1 . "','" . $roomid . "')";
                         $conn->exec($st1);
                     } catch (PDOException $e) {
-                        print"$e";
+                        print"$roomid." - ".$e";
                     }
                 }
 
