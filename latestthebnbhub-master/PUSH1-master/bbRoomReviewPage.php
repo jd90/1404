@@ -97,11 +97,86 @@ session_start();
                 $nbrofpeople =$_POST['nbrofpeople'];
                 $imageurl = $_POST['imageurl'];
 
+                if($_POST['imageurl']!=null){
+                    $imageurl1 = $_POST['imageurl'];
+                    $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    try {
+                        $st1 = "INSERT INTO [Images] ([imageurl], [roomid]) VALUES ('" . $imageurl1 . "','" . $roomid . "')";
+                        $conn->exec($st1);
+                    } catch (PDOException $e) {
+                        print"$e";
+                    }
+                }
 
+                if($_POST['imageurl1']!=null){
+                    $imageurl1 = $_POST['imageurl1'];
+                    $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    try {
+                        $st1 = "INSERT INTO [Images] ([imageurl], [roomid]) VALUES ('" . $imageurl1 . "','" . $roomid . "')";
+                        $conn->exec($st1);
+                    } catch (PDOException $e) {
+                        print"$e";
+                    }
+                }
+                if($_POST['imageurl2']!=null){
+                    $imageurl1 = $_POST['imageurl2'];
+                    $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    try {
+                        $st1 = "INSERT INTO [Images] ([imageurl], [roomid]) VALUES ('" . $imageurl1 . "','" . $roomid . "')";
+                        $conn->exec($st1);
+                    } catch (PDOException $e) {
+                        print"$e";
+                    }
+                }
+                if($_POST['imageurl3']!=null){
+                    $imageurl1 = $_POST['imageurl3'];
+                    $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    try {
+                        $st1 = "INSERT INTO [Images] ([imageurl], [roomid]) VALUES ('" . $imageurl1 . "','" . $roomid . "')";
+                        $conn->exec($st1);
+                    } catch (PDOException $e) {
+                        print"$e";
+                    }
+                }
+                if($_POST['imageurl4']!=null){
+                    $imageurl1 = $_POST['imageurl4'];
+                    $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    try {
+                        $st1 = "INSERT INTO [Images] ([imageurl], [roomid]) VALUES ('" . $imageurl1 . "','" . $roomid . "')";
+                        $conn->exec($st1);
+                    } catch (PDOException $e) {
+                        print"$e";
+                    }
+                }
+                if($_POST['imageurl5']!=null){
+                    $imageurl1 = $_POST['imageurl5'];
+                    $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    try {
+                        $st1 = "INSERT INTO [Images] ([imageurl], [roomid]) VALUES ('" . $imageurl1 . "','" . $roomid . "')";
+                        $conn->exec($st1);
+                    } catch (PDOException $e) {
+                        print"$e";
+                    }
+                }
+                if($_POST['imageurl6']!=null){
+                    $imageurl1 = $_POST['imageurl6'];
+                    $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    try {
+                        $st1 = "INSERT INTO [Images] ([imageurl], [roomid]) VALUES ('" . $imageurl1 . "','" . $roomid . "')";
+                        $conn->exec($st1);
+                    } catch (PDOException $e) {
+                        print"$e";
+                    }
+                }
 
-
-
-                $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
+            $conn = new PDO ("sqlsrv:server = tcp:bbsqldb.database.windows.net,1433; Database = SQL_BB", "teamdsqldb", "Sql20022016*");
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 try {
                     $st1 = "INSERT INTO [Room] ([bbid], [roomname], [roomdescription],[price], [numberofpeople]) VALUES ('" . $bbid . "','" . $roomname . "','" . $roomdescription . "','" . $price . "','" . $nbrofpeople . "')";
