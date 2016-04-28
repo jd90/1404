@@ -158,7 +158,7 @@ session_start();
             <ul>
                 <li><a href="help.php#helpsection">Help</a></li>
                 <li><a href="help.php#contactsection">Contact</a></li>
-                <li><a href="B&Bregistration.php">Register</a></li>
+                <li><a href="OwnerRegistration.php">Register</a></li>
                 <li><a href="OwnerSignIn.php">Member Area</a></li>
                 <li><a href="SearchBB.php">Search</a></li>
             </ul>
