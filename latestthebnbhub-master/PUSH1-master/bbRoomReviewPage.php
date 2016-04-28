@@ -107,7 +107,6 @@ session_start();
 
                    $roomid = $row[roomid];
 
-                        echo "1".$roomid;
 
                     }
                 }
