@@ -105,7 +105,7 @@ session_start();
                     foreach($st->fetchAll() as $row) {
 
 
-                   $roomid = $row[roomname];
+                   $roomid = $row[roomid];
 
 
                     }
